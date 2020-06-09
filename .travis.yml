@@ -5,6 +5,12 @@ branches:
   except:
   - /^(cherry-pick-)?backport-\d+-to-/
 
+env:
+  global:
+    - MAKEFLAGS="-j 2"
+    - CXXFLAGS="-O0"
+    - CFLAGS="-O0"
+
 matrix:
   fast_finish: true
   include:
@@ -164,7 +170,7 @@ script:
 notifications:
   irc:
     channels:
-       - "irc.freenode.org#gdal-activity"    
+       - "irc.freenode.org#gdal-activity"
       #- "irc.freenode.org#gdal"
     use_notice: true
     on_success: change
